@@ -16,6 +16,7 @@ const Navbar = () => {
         setSticky(false)
       }
     }
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
       window.addEventListener('scroll', handleScroll)
@@ -63,11 +64,19 @@ const Navbar = () => {
   )
 
   return (
-    <header className="max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out">
-      <div className={`navbar x1:px-24 ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out bg-white" : ""}`}>
+    <header
+      className={`max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out`}
+    >
+      <div
+        className={`navbar xl:px-24 ${
+          isSticky
+            ? 'shadow-md bg-base-100 transition-all duration-300 ease-in-out'
+            : ''
+        }`}
+      >
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -82,10 +91,10 @@ const Navbar = () => {
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
-            </div>
+            </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64 space-y-3"
             >
               {navItem}
             </ul>
@@ -121,7 +130,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle mr-3 md:flex hidden flex items-center justify-center"
+            className="btn btn-ghost btn-circle hidden lg:flex items-center justify-center mr-3"
           >
             <div className="indicator">
               <svg
